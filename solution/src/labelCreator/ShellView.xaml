@@ -9,8 +9,20 @@
                       Title="Label Creator" Height="768" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" Grid.Column="0">
+            <controls:Tile Title="About"
+                       TiltFactor="4"
+                       Width="100"
+                       Height="100"
+                       Background="Orange"/>
+        </WrapPanel>
+        
+        
     </Grid>
 </controls:MetroWindow>
