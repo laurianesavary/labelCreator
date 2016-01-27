@@ -7,6 +7,12 @@
                      xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                      mc:Ignorable="d"
                      Title="Label Creator" Height="768" Width="1024">
+    <mahApps:MetroWindow.Flyouts>
+        <mahApps:FlyoutsControl>
+            <mahApps:Flyout Name="AboutFlyout" Header="About" Position="Right" Width="250" />
+        </mahApps:FlyoutsControl>
+    </mahApps:MetroWindow.Flyouts>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -15,12 +21,15 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        
+        
         <WrapPanel Grid.Row="0" Grid.Column="0">
             <mahApps:Tile Title="About"
                            TiltFactor="4"
                            Width="100"
                            Height="100"
-                           Background="Orange"/>
+                           Background="Orange"
+                          Click="AboutTile_Click" />
         </WrapPanel>
     </Grid>
 
