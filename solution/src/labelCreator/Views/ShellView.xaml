@@ -1,0 +1,48 @@
+﻿<mahApps:MetroWindow x:Class="LabelCreator.Views.ShellView"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:cal="http://www.caliburnproject.org"
+                     xmlns:controls="clr-namespace:LabelCreator.Controls"
+                     xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     mc:Ignorable="d"
+                     Title="Label Creator" Height="768" Width="1024">
+    <mahApps:MetroWindow.Flyouts>
+        <mahApps:FlyoutsControl>
+            <controls:AutoCloseFlyout x:Name="SettingsFlyoutViewModel" 
+                                      cal:View.Model="{Binding SettingsFlyoutViewModel}"
+                                      Header="About"
+                                      Position="Right"
+                                      Width="250"
+                                      IsOpen="{Binding SettingsFlyoutViewModel.IsOpen}" />
+        </mahApps:FlyoutsControl>
+    </mahApps:MetroWindow.Flyouts>
+
+    <mahApps:MetroWindow.RightWindowCommands>
+        <mahApps:WindowCommands>
+            <Button x:Name="DisplaySettings" Content="Settings" cal:Message.Attach="DisplaySettings" />
+        </mahApps:WindowCommands>
+    </mahApps:MetroWindow.RightWindowCommands>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" Grid.Column="0">
+            <mahApps:Tile x:Name="TileAbout"
+                          cal:Message.Attach="DisplaySettings"
+                          Title="About"
+                          TiltFactor="4"
+                          Width="100"
+                          Height="100"
+                          Background="Orange" />
+        </WrapPanel>
+    </Grid>
+
+</mahApps:MetroWindow>

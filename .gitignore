@@ -3,3 +3,4 @@ solution/build/debug/*
 solution/build/release/*
 solution/packages
 solution/src/labelCreator/obj/*
+solution/src/labelCreator/StyleCop.Cache
