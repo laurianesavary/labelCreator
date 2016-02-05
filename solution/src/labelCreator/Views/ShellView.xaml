@@ -12,6 +12,13 @@
                      xmlns:views="clr-namespace:LabelCreator.Views"
                      mc:Ignorable="d"
                      Title="Label Creator" Height="768" Width="1024">
+    <mahApps:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resources/icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </mahApps:MetroWindow.Resources>
     <mahApps:MetroWindow.Flyouts>
         <mahApps:FlyoutsControl>
             <controls:AutoCloseFlyout x:Name="SettingsFlyoutViewModel" 

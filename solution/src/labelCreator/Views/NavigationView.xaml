@@ -4,7 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LabelCreator.Views"
+             xmlns:converter="clr-namespace:LabelCreator.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Label Grid.Column="0" Grid.Row="0" Content="{Binding Title}" Style="{StaticResource ScreenTitle}" />
+    <UserControl.Resources>
+        <converter:BoolToVisibilityConverter x:Key="boolConverter" />
+    </UserControl.Resources>
+    <WrapPanel>
+        <Button Height="40" Width="40" Visibility="{Binding BackVisible, Converter={StaticResource boolConverter}}" Command="{Binding NavigateBackToHomeScreenCommand}">
+            <!--<Rectangle Fill="Black" Margin="16" Opacity="0.5">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Visual="{StaticResource arrow_left}" Stretch="Fill" />
+                </Rectangle.OpacityMask>
+            </Rectangle>-->
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="..\Resources\back.png" />
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+        <Label Grid.Column="0" Grid.Row="0" Content="{Binding Title}" Style="{StaticResource ScreenTitle}" />
+    </WrapPanel>
 </UserControl>

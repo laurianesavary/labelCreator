@@ -57,7 +57,7 @@
             this.Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>();
 
             // Needs Singleton pattern for NavigationViewModel to ensure the same instance on all screens.
-            var navigationViewModel = new NavigationViewModel();
+            var navigationViewModel = new NavigationViewModel(this.Container.Resolve<IRegionManager>());
             this.Container.RegisterInstance<INavigationViewModel>(navigationViewModel);
 
             this.Container.RegisterType<IHomeScreenViewModel, HomeScreenViewModel>();
