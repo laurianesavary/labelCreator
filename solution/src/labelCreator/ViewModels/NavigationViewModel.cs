@@ -4,32 +4,33 @@
     using Microsoft.Practices.Prism.Mvvm;
 
     /// <summary>
-    ///     The view model representing the application flyout window.
+    ///     The view model representing the navigation.
     /// </summary>
-    public class SettingsFlyoutViewModel : BindableBase, ISettingsFlyoutViewModel
+    public class NavigationViewModel : BindableBase,
+                                       INavigationViewModel
     {
         #region Fields
 
-        private bool isOpen;
+        private string title = "test";
 
         #endregion Fields
 
         #region Public Properties
 
         /// <summary>
-        ///     Gets or sets a value indicating whether the flyout is visible or not.
+        ///     Gets or sets the title of the screen.
         /// </summary>
-        public bool IsOpen
+        public string Title
         {
             get
             {
-                return this.isOpen;
+                return this.title;
             }
 
             set
             {
-                this.isOpen = value;
-                this.OnPropertyChanged(() => this.IsOpen);
+                this.title = value;
+                this.OnPropertyChanged(() => this.Title);
             }
         }
 

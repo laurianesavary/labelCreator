@@ -111,13 +111,40 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\Contracts\IHomeScreenViewModel.cs" />
+    <Compile Include="ViewModels\Contracts\INavigationViewModel.cs" />
+    <Compile Include="ViewModels\Contracts\INewLabelViewModel.cs" />
     <Compile Include="ViewModels\Contracts\ISettingsFlyoutViewModel.cs" />
     <Compile Include="ViewModels\Contracts\IShellViewModel.cs" />
+    <Compile Include="ViewModels\HomeScreenViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\NewLabelViewModel.cs" />
     <Compile Include="ViewModels\SettingsFlyoutViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\HomeScreenView.xaml.cs">
+      <DependentUpon>HomeScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewLabelView.xaml.cs">
+      <DependentUpon>NewLabelView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsFlyoutView.xaml.cs">
       <DependentUpon>SettingsFlyoutView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\HomeScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewLabelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

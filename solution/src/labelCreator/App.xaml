@@ -10,9 +10,16 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary>
+                    <Style TargetType="{x:Type FrameworkElement}" x:Key="NormalText">
+                        <Setter Property="Margin" Value="20 5 20 5" />
+                    </Style>
                     <Style TargetType="Label" x:Key="ScreenTitle">
                         <Setter Property="FontSize" Value="22" />
                         <Setter Property="Margin" Value="30 25 0 20" />
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Width" Value="150" />
+                        <Setter Property="HorizontalAlignment" Value="Left" />
                     </Style>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

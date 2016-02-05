@@ -1,11 +1,11 @@
 ﻿namespace LabelCreator.Views
 {
-    using Microsoft.Practices.Unity;
     using System.Windows.Controls;
+    using Microsoft.Practices.Unity;
     using ViewModels.Contracts;
 
     /// <summary>
-    /// Interaction logic for SettingsFlyoutView.xaml
+    ///     Interaction logic for SettingsFlyoutView.xaml
     /// </summary>
     public partial class SettingsFlyoutView : UserControl
     {
@@ -17,6 +17,9 @@
             this.InitializeComponent();
         }
 
+        /// <summary>
+        ///     Sets the data context of this view to the corresponding view model.
+        /// </summary>
         [Dependency]
         public ISettingsFlyoutViewModel ViewModel
         {

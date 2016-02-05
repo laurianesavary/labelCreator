@@ -1,13 +1,12 @@
 ﻿namespace LabelCreator.ViewModels
 {
-    using LabelCreator.ViewModels.Contracts;
+    using System.Windows.Input;
     using Microsoft.Practices.Prism.Commands;
     using Microsoft.Practices.Prism.Mvvm;
     using Microsoft.Practices.Prism.Regions;
-    using Microsoft.Practices.ServiceLocation;
-    using Microsoft.Practices.Unity;
-    using System.Windows.Input;
+    using LabelCreator.ViewModels.Contracts;
     using Views;
+
     /// <summary>
     ///     The view model backing the <see cref="ShellView" /> view.
     /// </summary>
@@ -15,8 +14,6 @@
                                   IShellViewModel
     {
         private IRegionViewRegistry regionViewRegistry;
-
-        private IUnityContainer unityContainer;
 
         #region Constructors and Desctuctors
 
@@ -26,13 +23,14 @@
         /// <param name="settingsFlyoutViewModel">
         ///     The view model representing the application flyout window.
         /// </param>
+        /// <param name="regionViewRegistry">
+        ///     The interface for the registry of region's content.
+        /// </param>
         public ShellViewModel(ISettingsFlyoutViewModel settingsFlyoutViewModel,
-                              IRegionViewRegistry regionViewRegistry,
-                              IUnityContainer unityContainer)
+                              IRegionViewRegistry regionViewRegistry)
         {
             this.SettingsFlyoutViewModel = settingsFlyoutViewModel;
             this.regionViewRegistry = regionViewRegistry;
-            this.unityContainer = unityContainer;
 
             this.DisplaySettingsCommand = new DelegateCommand<object>(this.DisplaySettings, this.CanDisplaySettings);
         }
@@ -60,9 +58,6 @@
             return true;
         }
 
-        /// <summary>
-        ///     Displays the flyout for the settings.
-        /// </summary>
         private void DisplaySettings(object arg)
         {
             this.SettingsFlyoutViewModel.IsOpen = !this.SettingsFlyoutViewModel.IsOpen;

@@ -9,6 +9,9 @@
     using Microsoft.Practices.Prism.Regions;
     using Microsoft.Practices.Prism.UnityExtensions;
 
+    /// <summary>
+    ///     The class that sets up the application and underlying frameworks (Unity, Prism).
+    /// </summary>
     public class Bootstrapper : UnityBootstrapper
     {
         /// <summary>
@@ -36,6 +39,10 @@
         {
             Application.Current.MainWindow = (Window)Shell;
             Application.Current.MainWindow.Show();
+
+            var regionViewRegistry = this.Container.Resolve<IRegionViewRegistry>();
+            regionViewRegistry.RegisterViewWithRegion("NavigationRegion", typeof(NavigationView));
+            regionViewRegistry.RegisterViewWithRegion("ScreenContent", typeof(HomeScreenView));
         }
 
         /// <summary>
@@ -49,6 +56,12 @@
             this.Container.RegisterType<IRegionManager, RegionManager>();
             this.Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>();
 
+            // Needs Singleton pattern for NavigationViewModel to ensure the same instance on all screens.
+            var navigationViewModel = new NavigationViewModel();
+            this.Container.RegisterInstance<INavigationViewModel>(navigationViewModel);
+
+            this.Container.RegisterType<IHomeScreenViewModel, HomeScreenViewModel>();
+            this.Container.RegisterType<INewLabelViewModel, NewLabelViewModel>();
             this.Container.RegisterType<ISettingsFlyoutViewModel, SettingsFlyoutViewModel>();
             this.Container.RegisterType<IShellViewModel, ShellViewModel>();
         }

@@ -39,19 +39,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Content="Home Screen" Style="{StaticResource ScreenTitle}" />
+        <mahApps:MetroContentControl Grid.Row="0" Grid.Column="0" prism:RegionManager.RegionName="NavigationRegion" />
 
         <mahApps:MetroContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="ScreenContent" />
-
-        <!--<WrapPanel Grid.Row="1" Grid.Column="0">
-            <mahApps:Tile x:Name="TileAbout"
-                          cal:Message.Attach="DisplaySettings"
-                          Title="About"
-                          TiltFactor="4"
-                          Width="100"
-                          Height="100"
-                          Background="Orange" />
-        </WrapPanel>-->
     </Grid>
 
 </mahApps:MetroWindow>
