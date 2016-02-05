@@ -1,12 +1,12 @@
 ﻿namespace LabelCreator.ViewModels
 {
-    using Caliburn.Micro;
     using LabelCreator.ViewModels.Contracts;
+    using Microsoft.Practices.Prism.Mvvm;
 
     /// <summary>
     ///     The view model representing the application flyout window.
     /// </summary>
-    public class SettingsFlyoutViewModel : PropertyChangedBase, ISettingsFlyoutViewModel
+    public class SettingsFlyoutViewModel : BindableBase, ISettingsFlyoutViewModel
     {
         private bool isOpen;
 
@@ -23,7 +23,7 @@
             set
             {
                 this.isOpen = value;
-                this.NotifyOfPropertyChange("IsOpen");
+                this.OnPropertyChanged(() => this.IsOpen);
             }
         }
     }
