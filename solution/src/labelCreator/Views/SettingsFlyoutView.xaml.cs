@@ -1,6 +1,8 @@
 ﻿namespace LabelCreator.Views
 {
+    using Microsoft.Practices.Unity;
     using System.Windows.Controls;
+    using ViewModels.Contracts;
 
     /// <summary>
     /// Interaction logic for SettingsFlyoutView.xaml
@@ -13,6 +15,15 @@
         public SettingsFlyoutView()
         {
             this.InitializeComponent();
+        }
+
+        [Dependency]
+        public ISettingsFlyoutViewModel ViewModel
+        {
+            set
+            {
+                this.DataContext = value;
+            }
         }
     }
 }

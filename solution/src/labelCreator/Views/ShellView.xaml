@@ -7,34 +7,43 @@
                      xmlns:cal="http://www.caliburnproject.org"
                      xmlns:controls="clr-namespace:LabelCreator.Controls"
                      xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                     xmlns:prism="http://www.codeplex.com/prism"
+                     xmlns:viewmodels="clr-namespace:LabelCreator.ViewModels"
+                     xmlns:views="clr-namespace:LabelCreator.Views"
                      mc:Ignorable="d"
                      Title="Label Creator" Height="768" Width="1024">
     <mahApps:MetroWindow.Flyouts>
         <mahApps:FlyoutsControl>
             <controls:AutoCloseFlyout x:Name="SettingsFlyoutViewModel" 
-                                      cal:View.Model="{Binding SettingsFlyoutViewModel}"
                                       Header="About"
                                       Position="Right"
                                       Width="250"
-                                      IsOpen="{Binding SettingsFlyoutViewModel.IsOpen}" />
+                                      IsOpen="{Binding SettingsFlyoutViewModel.IsOpen}">
+                <mahApps:MetroContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="FlyoutRegion" />
+            </controls:AutoCloseFlyout>
         </mahApps:FlyoutsControl>
     </mahApps:MetroWindow.Flyouts>
 
     <mahApps:MetroWindow.RightWindowCommands>
         <mahApps:WindowCommands>
-            <Button x:Name="DisplaySettings" Content="Settings" cal:Message.Attach="DisplaySettings" />
+            <Button x:Name="DisplaySettings" Content="Settings" Command="{Binding DisplaySettingsCommand}" />
         </mahApps:WindowCommands>
     </mahApps:MetroWindow.RightWindowCommands>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <WrapPanel Grid.Row="0" Grid.Column="0">
+        <Label Grid.Column="0" Grid.Row="0" Content="Home Screen" Style="{StaticResource ScreenTitle}" />
+
+        <mahApps:MetroContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="ScreenContent" />
+
+        <!--<WrapPanel Grid.Row="1" Grid.Column="0">
             <mahApps:Tile x:Name="TileAbout"
                           cal:Message.Attach="DisplaySettings"
                           Title="About"
@@ -42,7 +51,7 @@
                           Width="100"
                           Height="100"
                           Background="Orange" />
-        </WrapPanel>
+        </WrapPanel>-->
     </Grid>
 
 </mahApps:MetroWindow>
