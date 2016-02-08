@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:LabelCreator.Resources">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Canvas x:Key="arrow_left">
         <Polygon Points="378.077,426.063 260.239,308.226 368.424,200.013 328.895,160.511 181.375,308.03 338.742,465.398   "
                  FillRule="NonZero"

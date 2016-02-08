@@ -15,7 +15,7 @@
                     </Style>
                     <Style TargetType="Label" x:Key="ScreenTitle">
                         <Setter Property="FontSize" Value="22" />
-                        <Setter Property="Margin" Value="30 25 0 20" />
+                        <Setter Property="Margin" Value="5 25 0 20" />
                     </Style>
                     <Style TargetType="TextBox">
                         <Setter Property="Width" Value="150" />
