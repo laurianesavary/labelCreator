@@ -111,6 +111,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controls\FilePicker.xaml.cs">
+      <DependentUpon>FilePicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\Contracts\IHomeScreenViewModel.cs" />
     <Compile Include="ViewModels\Contracts\INavigationViewModel.cs" />
@@ -134,6 +137,10 @@
     <Compile Include="Views\SettingsFlyoutView.xaml.cs">
       <DependentUpon>SettingsFlyoutView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\FilePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\icons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
