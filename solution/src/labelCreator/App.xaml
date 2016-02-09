@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary>
                     <Style TargetType="{x:Type FrameworkElement}" x:Key="NormalText">
-                        <Setter Property="Margin" Value="20 5 20 5" />
+                        <Setter Property="Margin" Value="0 5 20 5" />
                     </Style>
                     <Style TargetType="Label" x:Key="ScreenTitle">
                         <Setter Property="FontSize" Value="22" />

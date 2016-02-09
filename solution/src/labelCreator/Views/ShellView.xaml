@@ -41,7 +41,7 @@
 
         <mahApps:MetroContentControl Grid.Row="0" Grid.Column="0" prism:RegionManager.RegionName="NavigationRegion" />
 
-        <mahApps:MetroContentControl Grid.Row="1" Grid.Column="0" prism:RegionManager.RegionName="ScreenContent" />
+        <mahApps:MetroContentControl Grid.Row="1" Grid.Column="0" Padding="5" prism:RegionManager.RegionName="ScreenContent" />
     </Grid>
 
 </mahApps:MetroWindow>
