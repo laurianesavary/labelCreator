@@ -13,9 +13,12 @@
                     <Style TargetType="{x:Type FrameworkElement}" x:Key="NormalText">
                         <Setter Property="Margin" Value="0 5 20 5" />
                     </Style>
-                    <Style TargetType="Label" x:Key="ScreenTitle">
+                    <Style x:Key="ScreenTitle" TargetType="Label">
                         <Setter Property="FontSize" Value="22" />
                         <Setter Property="Margin" Value="5 25 0 20" />
+                    </Style>
+                    <Style x:Key="Subtitle" TargetType="Label">
+                        <Setter Property="FontWeight" Value="Bold" />
                     </Style>
                     <Style TargetType="TextBox">
                         <Setter Property="Width" Value="150" />

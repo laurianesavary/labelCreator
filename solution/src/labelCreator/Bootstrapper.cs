@@ -8,7 +8,9 @@
     using ViewModels;
     using Microsoft.Practices.Prism.Regions;
     using Microsoft.Practices.Prism.UnityExtensions;
-
+    using Services;
+    using Services.Contracts;    
+    
     /// <summary>
     ///     The class that sets up the application and underlying frameworks (Unity, Prism).
     /// </summary>
@@ -64,6 +66,8 @@
             this.Container.RegisterType<INewLabelViewModel, NewLabelViewModel>();
             this.Container.RegisterType<ISettingsFlyoutViewModel, SettingsFlyoutViewModel>();
             this.Container.RegisterType<IShellViewModel, ShellViewModel>();
+
+            this.Container.RegisterType<IFileNamePromptService, FileNamePromptService>();
         }
     }
 }

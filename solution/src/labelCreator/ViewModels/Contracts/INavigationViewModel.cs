@@ -6,7 +6,7 @@
     public interface INavigationViewModel
     {
         /// <summary>
-        ///     Gets the visibility of the "Back" button.
+        ///     Gets a value indicating whether the "Back" button is visible or not.
         /// </summary>
         bool BackVisible { get; }
 

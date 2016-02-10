@@ -9,11 +9,13 @@
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
-        <ContentControl Grid.Row="1" Grid.Column="0">
+        <ContentControl Grid.Row="0" Grid.Column="0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -26,15 +28,44 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Text of the label" Style="{StaticResource NormalText}" />
-                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource NormalText}" />
+                <Label Grid.Row="0" Grid.Column="0" Content="First line" Style="{StaticResource NormalText}" />
+                <TextBox Grid.Row="0" Grid.Column="1"
+                         Text="{Binding FirstLineText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MaxLength="35"
+                         Style="{StaticResource NormalText}" />
 
-                <Label Grid.Row="2" Grid.Column="0" Content="Image (on left)" Style="{StaticResource NormalText}" />
-                <controls:FilePicker Grid.Row="2" Grid.Column="1" Style="{StaticResource NormalText}" />
+                <Label Grid.Row="1" Grid.Column="0" Content="Second line" Style="{StaticResource NormalText}" />
+                <TextBox Grid.Row="1" Grid.Column="1"
+                         Text="{Binding SecondLineText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MaxLength="35"
+                         Style="{StaticResource NormalText}" />
 
-                <Label Grid.Row="3" Grid.Column="0" Content="Image (on right)" Style="{StaticResource NormalText}" />
-                <controls:FilePicker Grid.Row="3" Grid.Column="1" Style="{StaticResource NormalText}" />
+                <Label Grid.Row="2" Grid.Column="0" Content="Left image" Style="{StaticResource NormalText}" />
+                <controls:FilePicker Grid.Row="2" Grid.Column="1"
+                                     Text="{Binding LeftImagePath, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                     TextBoxAutomationId="TextBox_LeftImagePath"
+                                     BrowseButtonAutomationId="Button_BrowseLeftImagePath"
+                                     BrowseCommand="{Binding BrowseLeftImageCommand}"
+                                     Style="{StaticResource NormalText}"
+                                     Width="900" />
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Right image" Style="{StaticResource NormalText}" />
+                <controls:FilePicker Grid.Row="3" Grid.Column="1"
+                                     Text="{Binding RightImagePath, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                     TextBoxAutomationId="Textbox_RightImagePath"
+                                     BrowseButtonAutomationId="Button_BrowseRightImagePath"
+                                     BrowseCommand="{Binding BrowseRightImageCommand}"
+                                     Style="{StaticResource NormalText}"
+                                     Width="900" />
             </Grid>
         </ContentControl>
+
+        <Label Content="Label preview" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource Subtitle}" />
+
+        <controls:LabelPreview Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                               LeftImagePath="{Binding LeftImagePath}"
+                               FirstLineText="test"
+                               RightImagePath="{Binding RightImagePath}"
+                               Width="300" />
     </Grid>
 </UserControl>

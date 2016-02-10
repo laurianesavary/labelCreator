@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="LabelCreator.Controls.LabelPreview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LabelCreator.Controls"
+             xmlns:converters="clr-namespace:LabelCreator.Converters"
+             mc:Ignorable="d" 
+             x:Name="Control"
+             d:DesignHeight="40" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:NullImageConverter x:Key="nullImageConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border BorderBrush="Gray" BorderThickness="1">
+        <Border.Background>
+            <SolidColorBrush Color="White" />
+        </Border.Background>
+
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="10" Color="Black" Direction="235" Opacity="0.5" RenderingBias="Quality" ShadowDepth="10" />
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0" x:Name="LeftImage"
+                   Source="{Binding LeftImagePath, Converter={StaticResource nullImageConverter}}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   AutomationProperties.AutomationId="{Binding Path=ImageLeftAutomationId, ElementName=Control}" />
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Text="{Binding FirstLineText}"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           AutomationProperties.AutomationId="{Binding Path=FirstLineTextAutomationId, ElementName=Control}" />
+
+                <TextBlock Grid.Row="1"
+                       Text="{Binding SecondLineText}"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       AutomationProperties.AutomationId="{Binding Path=SecondLineTextAutomationId, ElementName=Control}" />
+            </Grid>
+
+            <Image Grid.Column="2" x:Name="RightImage"
+                   Source="{Binding RightImagePath, Converter={StaticResource nullImageConverter}}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   AutomationProperties.AutomationId="{Binding Path=ImageRightAutomationId, ElementName=Control}" />
+        </Grid>
+    </Border>
+</UserControl>

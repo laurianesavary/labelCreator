@@ -114,7 +114,15 @@
     <Compile Include="Controls\FilePicker.xaml.cs">
       <DependentUpon>FilePicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LabelPreview.xaml.cs">
+      <DependentUpon>LabelPreview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\NullImageConverter.cs" />
+    <Compile Include="Services\Contracts\IFileNamePromptService.cs" />
+    <Compile Include="Services\FileNamePromptService.cs" />
+    <Compile Include="StringConstants.cs" />
+    <Compile Include="UserInterface\FileNamePromptOptions.cs" />
     <Compile Include="ViewModels\Contracts\IHomeScreenViewModel.cs" />
     <Compile Include="ViewModels\Contracts\INavigationViewModel.cs" />
     <Compile Include="ViewModels\Contracts\INewLabelViewModel.cs" />
@@ -138,6 +146,10 @@
       <DependentUpon>SettingsFlyoutView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\FilePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LabelPreview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

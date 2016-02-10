@@ -1,11 +1,12 @@
 ﻿namespace LabelCreator.ViewModels
 {
+    using System;
+    using System.Windows.Input;
     using LabelCreator.ViewModels.Contracts;
     using Microsoft.Practices.Prism.Commands;
     using Microsoft.Practices.Prism.Mvvm;
     using Microsoft.Practices.Prism.Regions;
-    using System;
-    using System.Windows.Input;
+
     /// <summary>
     ///     The view model representing the navigation.
     /// </summary>
@@ -14,14 +15,20 @@
     {
         #region Fields
 
+        private readonly IRegionManager regionManager;
+
         private bool backVisible;
 
         private string title;
 
-        private readonly IRegionManager regionManager;
-
         #endregion Fields
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="NavigationViewModel" /> class.
+        /// </summary>
+        /// <param name="regionManager">
+        ///     The interface to manage a set of Microsoft.Practices.Prism.Regions.IRegion and to attach regions to objects (typically controls).
+        /// </param>
         public NavigationViewModel(IRegionManager regionManager)
         {
             this.regionManager = regionManager;
@@ -31,10 +38,13 @@
 
         #region Public Properties
 
+        /// <summary>
+        ///     Gets or sets the command associated with the "Back" <see cref="Button" />.
+        /// </summary>
         public ICommand NavigateBackToHomeScreenCommand { get; set; }
 
         /// <summary>
-        ///     Gets the visibility of the "Back" button.
+        ///     Gets a value indicating whether the "Back" button is visible or not.
         /// </summary>
         public bool BackVisible
         {

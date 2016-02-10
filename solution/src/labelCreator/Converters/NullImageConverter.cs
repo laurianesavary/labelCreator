@@ -6,14 +6,12 @@
     using System.Windows.Data;
 
     /// <summary>
-    ///     Class that manages the conversion between <see cref="Visibility" /> and boolean.
+    ///     Class that manages the conversion of an image source.
     /// </summary>
-    public class BoolToVisibilityConverter : IValueConverter
+    public class NullImageConverter : IValueConverter
     {
-        #region Public Methods and Operators
-
         /// <summary>
-        ///     Converts boolean to <see cref="Visibility" />.
+        ///     Converts an null image to "no image".
         /// </summary>
         /// <param name="value">
         ///     The value produced by the binding source.
@@ -28,20 +26,20 @@
         ///     The culture to use in the converter.
         /// </param>
         /// <returns>
-        ///     The <see cref="Visibility" /> corresponding to the given boolean.
+        ///     A converted value. If the method returns null, the valid null value is used.
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool && (bool)value)
+            if (value == null)
             {
-                return Visibility.Visible;
+                return DependencyProperty.UnsetValue;
             }
 
-            return Visibility.Collapsed;
+            return value;
         }
 
         /// <summary>
-        ///     Converts <see cref="Visibility" /> to boolean.
+        ///     Converts a value.
         /// </summary>
         /// <param name="value">
         ///     The value that is produced by the binding target.
@@ -56,18 +54,11 @@
         ///     The culture to use in the converter.
         /// </param>
         /// <returns>
-        ///     The boolean corresponding to the given <see cref="Visibility" />.
+        ///     A converted value. If the method returns null, the valid null value is used.
         /// </returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Visibility && (Visibility)value == Visibility.Visible)
-            {
-                return true;
-            }
-
-            return false;
+            throw new NotImplementedException();
         }
-
-        #endregion Public Methods and Operators
     }
 }
