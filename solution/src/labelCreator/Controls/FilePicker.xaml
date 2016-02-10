@@ -4,10 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LabelCreator.Controls"
+             xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
+             x:Name="Control"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <WrapPanel Orientation="Horizontal">
-        <TextBox x:Name="FilePickerText" Text="{Binding FilePickerText}" Width="150" />
-        <Button Content="Browse" Margin="3,0,0,0" Click="BrowseClick" />
-    </WrapPanel>
+             d:DesignWidth="300" d:DesignHeight="27">
+    <Grid>
+        <TextBox x:Name="TextBox"
+                 Text="{Binding Text, ElementName=Control, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="{Binding IsReadOnly, ElementName=Control}"
+                 IsReadOnlyCaretVisible="True"
+                 AutomationProperties.AutomationId="{Binding Path=TextBoxAutomationId, ElementName=Control}"
+                 mahapps:TextBoxHelper.Watermark="{Binding Path=Watermark, ElementName=Control}"
+                 Padding="0,0,20,0"
+                 Margin="0" Width="Auto" HorizontalAlignment="Stretch" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="{Binding ActualHeight, ElementName=TextBox}">
+            <Rectangle Width="12" Fill="{DynamicResource ControlBackgroundBrush}" Margin="0,1">
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop Color="#00000000" Offset="0" />
+                        <GradientStop Color="White" Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+
+            <Button Content="&#x1f4c2;" FontFamily="Segoe UI Symbol" FontSize="16" VerticalAlignment="Center"
+                    Margin="0,1,3,1"
+                    Style="{DynamicResource ChromelessButtonStyle}"
+                    Background="{DynamicResource ControlBackgroundBrush}"
+                    AutomationProperties.AutomationId="{Binding Path=BrowseButtonAutomationId, Mode=OneWay, ElementName=Control}"
+                    Command="{Binding Path=BrowseCommand, Mode=OneWay, ElementName=Control}" />
+        </StackPanel>
+    </Grid>
 </UserControl>
