@@ -6,10 +6,12 @@
     using Microsoft.Practices.Prism.Mvvm;
     using Services.Contracts;
     using UserInterface;
-
-    /// <summary>
-    ///     The view model representing the creation of a new label.
-    /// </summary>
+    using Types;
+    using Newtonsoft.Json;
+    using System.IO;
+    using System.Collections.Generic;/// <summary>
+                                     ///     The view model representing the creation of a new label.
+                                     /// </summary>
     public class NewLabelViewModel : BindableBase,
                                      INewLabelViewModel
     {
@@ -44,6 +46,7 @@
 
             this.BrowseLeftImageCommand = new DelegateCommand(this.BrowseLeftImagePath);
             this.BrowseRightImageCommand = new DelegateCommand(this.BrowseRightImagePath);
+            this.SaveLabelCommand = new DelegateCommand(this.SaveLabel);
         }
 
         #region Public Properties
@@ -57,6 +60,11 @@
         ///     Gets the command associated with the "Browse" <see cref="Button" /> on the right image path file picker.
         /// </summary>
         public ICommand BrowseRightImageCommand { get; private set; }
+
+        /// <summary>
+        ///     Gets the command associated with the "Save" <see cref="Button" /> in the application bar.
+        /// </summary>
+        public ICommand SaveLabelCommand { get; private set; }
 
         /// <summary>
         ///     Gets or sets the text of the first line of the label.
@@ -153,6 +161,37 @@
             if (!string.IsNullOrWhiteSpace(filePath))
             {
                 this.RightImagePath = filePath;
+            }
+        }
+
+        /// <summary>
+        ///     Saves the data of the label to a file.
+        /// </summary>
+        public void SaveLabel()
+        {
+            var list = new List<LabelData>();
+
+            list.Add(new LabelData
+                        {
+                            FirstLineText = this.FirstLineText,
+                            ImageLeftPath = this.LeftImagePath,
+                            ImageRightPath = this.RightImagePath,
+                            SecondLineText = this.SecondLineText
+                        });
+
+            var json = JsonConvert.SerializeObject(list.ToArray());
+
+            var fileNamePromptOptions = new FileNamePromptOptions
+            {
+                CheckPathExists = true,
+                DefaultExt = ".json"
+            };
+
+            var filename = this.fileNamePromptService.PromptForSaveFile(fileNamePromptOptions);
+
+            if (filename != null)
+            {
+                File.WriteAllText(filename, json);
             }
         }
 

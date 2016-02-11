@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LabelCreator.Views"
              xmlns:controls="clr-namespace:LabelCreator.Controls"
+             xmlns:mahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
@@ -13,6 +14,7 @@
             <RowDefinition Height="80" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <ContentControl Grid.Row="0" Grid.Column="0">
@@ -67,5 +69,18 @@
                                FirstLineText="test"
                                RightImagePath="{Binding RightImagePath}"
                                Width="300" />
+
+        <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                Background="Black" Opacity=".7"
+                HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+                Height="60" Margin="-5">
+            <ContentControl>
+                <WrapPanel>
+                    <Button Content="Save" Height="60" Foreground="White" Background="Black" Opacity=".7" Command="{Binding SaveLabelCommand}" />
+                </WrapPanel>
+                
+            </ContentControl>
+        </Border>
+        
     </Grid>
 </UserControl>

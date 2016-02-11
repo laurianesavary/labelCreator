@@ -17,5 +17,16 @@
         ///     The name of the file selected by the user, or null if canceled.
         /// </returns>
         string PromptForOpenFile(FileNamePromptOptions options);
+
+        /// <summary>
+        ///     Displays a dialog to save a file.
+        /// </summary>
+        /// <param name="options">
+        ///     The options.
+        /// </param>
+        /// <returns>
+        ///     The name of the file selected by the user, or null if canceled.
+        /// </returns>
+        string PromptForSaveFile(FileNamePromptOptions options);
     }
 }
