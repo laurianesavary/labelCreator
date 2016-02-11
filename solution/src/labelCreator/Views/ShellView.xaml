@@ -11,7 +11,9 @@
                      xmlns:viewmodels="clr-namespace:LabelCreator.ViewModels"
                      xmlns:views="clr-namespace:LabelCreator.Views"
                      mc:Ignorable="d"
-                     Title="Label Creator" Height="768" Width="1024">
+                     Title="Label Creator" Height="768" Width="1024"
+                     BorderThickness="0"
+                     GlowBrush="Black">
     <mahApps:MetroWindow.Flyouts>
         <mahApps:FlyoutsControl>
             <controls:AutoCloseFlyout x:Name="SettingsFlyoutViewModel" 
