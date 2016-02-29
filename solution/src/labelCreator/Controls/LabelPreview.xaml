@@ -32,6 +32,7 @@
                    Source="{Binding LeftImagePath, Converter={StaticResource nullImageConverter}}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
+                   Margin="2"
                    AutomationProperties.AutomationId="{Binding Path=ImageLeftAutomationId, ElementName=Control}" />
 
             <Grid Grid.Column="1">
@@ -57,6 +58,7 @@
                    Source="{Binding RightImagePath, Converter={StaticResource nullImageConverter}}"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
+                   Margin="2"
                    AutomationProperties.AutomationId="{Binding Path=ImageRightAutomationId, ElementName=Control}" />
         </Grid>
     </Border>
